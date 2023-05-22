@@ -33,12 +33,6 @@
 <!-- - **Ruby** -->
 ### Tech Stack <a name="tech-stack"></a>
 
-<details>
-  <summary>Client</summary>
-  <ul>
-    <li>N/A</li>
-  </ul>
-</details>
 
 <details>
   <summary>Server</summary>
@@ -48,11 +42,6 @@
 </details>
 
 <details>
-<summary>Database</summary>
-  <ul>
-    <li>N/A</li>
-  </ul>
-</details>
 
 <!-- Features -->
 
@@ -108,7 +97,7 @@ Install all the dependencies required for, by using the command below
 
 ## 🔭 Future Features <a name="future-features"></a>
 
-- [ ] **N/L**
+- A fully finctional library
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
