@@ -1,5 +1,5 @@
 <div align="center">
-  <h1><b>DECODE MORSE MESSAGE</b></h1>
+  <h1><b>Oop school library</b></h1>
 </div>
 
 <!-- TABLE OF CONTENTS -->
@@ -41,7 +41,7 @@
   </ul>
 </details>
 
-<details>
+
 
 <!-- Features -->
 
