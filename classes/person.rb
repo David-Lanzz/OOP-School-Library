@@ -1,4 +1,6 @@
 require_relative 'nameable'
+require_relative 'capitalize.rb'
+require_relative 'trimmer.rb'
 
 class Person < Nameable
   attr_accessor :name, :age
@@ -26,6 +28,3 @@ class Person < Nameable
   end
 end
 
-
-lanzz = Person.new(21, 'lanzz')
-puts lanzz.correct_name

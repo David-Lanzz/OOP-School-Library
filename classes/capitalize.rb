@@ -6,5 +6,3 @@ class Capitalize < Decorator
   end
 end
 
-lanzz = Capitalize.new('lanzz')
-puts lanzz.correct_name
