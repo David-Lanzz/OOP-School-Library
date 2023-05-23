@@ -5,4 +5,3 @@ class Capitalize < Decorator
     @nameable.upcase
   end
 end
-

@@ -1,6 +1,6 @@
 require_relative 'nameable'
-require_relative 'capitalize.rb'
-require_relative 'trimmer.rb'
+require_relative 'capitalize'
+require_relative 'trimmer'
 
 class Person < Nameable
   attr_accessor :name, :age
@@ -27,4 +27,3 @@ class Person < Nameable
     @age >= 18
   end
 end
-
