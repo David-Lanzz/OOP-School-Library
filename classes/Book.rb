@@ -5,5 +5,7 @@ attr_accessor :title :author
 @author = author
 @rentals = []
   end
-
+def rentals(something)
+  @rentals.push(something)
+  end
 end
