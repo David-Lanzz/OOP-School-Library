@@ -47,7 +47,6 @@ class App
     puts 'Book author?'
     author = gets.chomp
     newest_book = Book.new(title, author)
-    puts newest_book
     @books.push(newest_book)
     puts 'Book created successfully'
   end
@@ -71,8 +70,6 @@ class App
     name = gets.chomp
     puts 'Has parent permission[Y/N]?'
     parent_permission_input = gets.chomp.upcase
-    return unless parent_permission_input == 'Y'
-
     new_student = Student.new(name, age, parent_permission_input)
     @people.push(new_student)
     puts 'Student created successfully'
