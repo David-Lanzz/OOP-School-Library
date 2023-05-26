@@ -1,6 +1,5 @@
 require_relative 'app'
 
-
 class Main
   def initialize
     @app = App.new
@@ -38,7 +37,6 @@ class Main
     end
   end
 end
-
 
 main = Main.new
 main.run
