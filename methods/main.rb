@@ -1,55 +1,44 @@
-require_relative "app.rb"
+require_relative 'app'
 
-def main
-app = App.new()
 
-choices = {
-  '1' => :all_books,
-  '2' => :all_people,
-  '3' => :new_person,
-  '4' => :new_book,
-  '5' => :new_rental,
-  '6' => :list_rentals
-}
-options = [
-  'List all books',
-  'List all rentals',
-  'Create a new person',
-  'Create a new book',
-  'Create a new rental',
-  'List all rentals for a given person ID',
-  'Exit'
- ]
-puts "select an option"
-options.each_with_index{|option,index|
-puts "#{index + 1}) #{option}"
-}
-choice = gets.chomp
-handle_choices(app,choice)
-end
+class Main
+  def initialize
+    @app = App.new
+  end
 
-def handle_choices(app,choice)
-  case choice
-  when '1'
-    app.all_books
-    main
-  when '2'
-    app.all_people
-    main
-  when '3'
-    app.new_person
-    main
-  when '4'
-    app.new_book
-    main
-  when '5'
-    app.new_rental
-    main
-  when '6'
-    app.list_rentals
-    main
+  def options
+    puts '1 - List all books'
+    puts '2 - List all people'
+    puts '3 - Create a person'
+    puts '4 - Create a book'
+    puts '5 - Create a rental'
+    puts '6 - List all rentals for a given person id'
+    puts '7 - Exit'
+  end
+
+  def options_input(app)
+    input = gets.chomp
+    case input.to_i
+    when 1 then app.all_books
+    when 2 then app.all_people
+    when 3 then app.new_person
+    when 4 then app.new_book
+    when 5 then app.new_rental
+    when 6 then app.list_rentals
+    when 7
+      puts 'Thank you for using School Library App!'
+      exit
+    end
+  end
+
+  def run
+    loop do
+      options
+      options_input(@app)
+    end
   end
 end
 
 
-main
+main = Main.new
+main.run

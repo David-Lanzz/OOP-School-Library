@@ -10,6 +10,8 @@ class Book
   end
 
   def add_rental(person, date)
-    Rental.new(date, self, person)
+    new_rental = Rental.new(date, self, person)
+    @rentals << new_rental unless
+      @rentals.include?(new_rental)
   end
 end
