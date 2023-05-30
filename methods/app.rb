@@ -14,7 +14,6 @@ class App
   end
 
   def all_books
-    print @rentals
     puts 'List of books:'
     @books.each do |book|
       puts "Title: #{book.title.capitalize}, Author: #{book.author.capitalize}"
