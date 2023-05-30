@@ -92,7 +92,15 @@ Install all the dependencies required for, by using the command below
 - GitHub: [@githubhandle](https://github.com/David-Lanzz/)
 - Twitter: [@twitterhandle](https://twitter.com/LanzzDavid)
 - LinkedIn: [LinkedIn](https://linkedin.com/in/david-lanzz)
+## 👥 Author <a name="author"></a>
 
+👤 **Zewdie Habtie**
+
+- GitHub: [@zewdieMc](https://github.com/ZewdieMc/)
+
+- Twitter: [@habtiezewdie](https://twitter.com/LanzzDavid)
+
+- LinkedIn: [zewdie Habtie](https://linkedin.com/in/zewdiehabtie)
 <!-- FUTURE FEATURES -->
 
 ## 🔭 Future Features <a name="future-features"></a>
