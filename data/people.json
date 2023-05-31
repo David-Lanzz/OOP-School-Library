@@ -1,20 +1,14 @@
 [
   {
-    "name": "1342",
-    "age": "12",
+    "name": "David",
+    "age": "24",
     "class": "Student",
-    "id": "404"
+    "id": "514"
   },
   {
-    "name": "wdrfwf",
-    "age": "qcf",
-    "class": "Student",
-    "id": "506"
-  },
-  {
-    "name": "eff",
-    "age": "12",
-    "class": "Student",
-    "id": "189"
+    "name": "30",
+    "age": "Zewdie",
+    "class": "Teacher",
+    "id": "616"
   }
 ]

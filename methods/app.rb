@@ -8,7 +8,7 @@ require_relative '../storage/preservation'
 class App
   attr_accessor :books, :people
 
-  def initialize(books,people,rentals)
+  def initialize(books, people, rentals)
     @books = books
     @people = people
     @rentals = rentals
@@ -17,14 +17,14 @@ class App
   def all_books
     puts 'List of books:'
     @books.each do |book|
-      puts "Title: #{book["title"].capitalize}, Author: #{book["author"].capitalize}"
+      puts "Title: #{book['title'].capitalize}, Author: #{book['author'].capitalize}"
     end
   end
 
   def all_people
     puts 'All people:'
     @people.each do |person|
-      puts "name: #{person["name"]}, age: #{person["age"]}"
+      puts "name: #{person['name']}, age: #{person['age']}"
       puts "\n"
     end
   end
@@ -49,7 +49,7 @@ class App
     newest_book = Book.new(title, author)
     newestbooktitle = newest_book.title
     newestbookauthor = newest_book.author
-    @books << {"title"=> newestbooktitle,"author"=> newestbookauthor}
+    @books << { 'title' => newestbooktitle, 'author' => newestbookauthor }
     Preservation.new.preserve_books(@books)
     puts 'Book created successfully'
   end
@@ -66,7 +66,8 @@ class App
     newest_teacherage = newest_teacher.age
     newest_teacherid = newest_teacher.id
     newest_teacherclass = newest_teacher.class
-    @people << {"name"=> newest_teachername,"age"=> newest_teacherage,"id"=> newest_teacherid.to_s,"class"=> newest_teacherclass}
+    @people << { 'name' => newest_teachername, 'age' => newest_teacherage, 'id' => newest_teacherid.to_s,
+                 'class' => newest_teacherclass }
     Preservation.new.preserve_people(@people)
     puts 'Teacher created successfully'
   end
@@ -83,7 +84,8 @@ class App
     new_studentage = new_student.age
     new_studentid = new_student.id
     new_studentclass = new_student.class
-    @people << {"name"=> new_studentname,"age"=> new_studentage,"id"=> new_studentid.to_s,"class"=> new_studentclass}
+    @people << { 'name' => new_studentname, 'age' => new_studentage, 'id' => new_studentid.to_s,
+                 'class' => new_studentclass }
     Preservation.new.preserve_people(@people)
     puts 'Student created successfully'
   end
@@ -91,7 +93,7 @@ class App
   def new_rental
     puts 'Select a book from the following list by number:'
     @books.each_with_index do |book, index|
-      puts "(#{index}) Title: #{book["title"]}"
+      puts "(#{index}) Title: #{book['title']}"
     end
     book_number = gets.chomp.to_i
     if book_number.negative? || book_number > books.length
@@ -101,7 +103,7 @@ class App
     selected_book = books[book_number]
     puts 'Select a person from the following list by number (not id)'
     @people.each_with_index do |person, index|
-      puts "#{index}) [#{person["class"]}] Name: #{person["name"]}, ID: #{person["id"]}, Age: #{person["age"]}"
+      puts "#{index}) [#{person['class']}] Name: #{person['name']}, ID: #{person['id']}, Age: #{person['age']}"
     end
     number = gets.chomp.to_i
     continue_rental_registration(number, selected_book)
@@ -117,10 +119,10 @@ class App
     date = gets.chomp
     rental = Rental.new(date, selected_book, selected_person)
     rentaldate = rental.date
-    rentalbook = rental.book["title"]
-    rentalperson = rental.person["name"]
-    rentalauthor = rental.book["author"]
-    @rentals << {"date"=> rentaldate,"book"=> rentalbook,"person"=> rentalperson, "author"=> rentalauthor}
+    rentalbook = rental.book['title']
+    rentalperson = rental.person['name']
+    rentalauthor = rental.book['author']
+    @rentals << { 'date' => rentaldate, 'book' => rentalbook, 'person' => rentalperson, 'author' => rentalauthor }
     Preservation.new.preserve_rentals(@rentals)
     puts 'Rental created successfully'
   end
@@ -129,7 +131,7 @@ class App
     puts 'ID of person:'
     requested_id = gets.chomp.to_i
     person = @people.find do |p|
-      p["id"].to_i == requested_id
+      p['id'].to_i == requested_id
     end
     if person.nil?
       puts "person with requested id: #{requested_id} not found"
@@ -137,10 +139,10 @@ class App
     end
     puts 'Rentals: '
     rental_for_person = @rentals.select do |rental|
-      rental["person"] == person["name"]
+      rental['person'] == person['name']
     end
     rental_for_person.each do |rental|
-      puts "Date: #{rental["date"]}, Book: #{rental["book"]} by #{rental["author"]}"
+      puts "Date: #{rental['date']}, Book: #{rental['book']} by #{rental['author']}"
     end
   end
 end
