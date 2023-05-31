@@ -61,7 +61,7 @@ class App
     name = gets.chomp
     puts 'specialization?'
     specialization = gets.chomp
-    newest_teacher = Teacher.new(name, age, specialization)
+    newest_teacher = Teacher.new(age, name, specialization)
     newest_teachername = newest_teacher.name
     newest_teacherage = newest_teacher.age
     newest_teacherid = newest_teacher.id
@@ -110,8 +110,8 @@ class App
   end
 
   def continue_rental_registration(number, selected_book)
-    if number.negative? || number > books.length
-      puts 'Invalid book selection'
+    if number.negative? || number > @people.length
+      puts 'Invalid person selection'
       return
     end
     selected_person = @people[number]
