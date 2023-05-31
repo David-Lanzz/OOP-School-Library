@@ -21,7 +21,7 @@ Metrics/BlockLength:
 Metrics/CyclomaticComplexity:
   Max: 10
 Metrics/ParameterLists:
-  Enabled: false
+  Enabled: true
 Style/OptionalBooleanParameter:
   Enabled: false
 
