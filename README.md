@@ -86,13 +86,18 @@ Install all the dependencies required for, by using the command below
 
 <!-- AUTHOR -->
 
-## 👥 Author <a name="author"></a>
+ 👥 Authors <a name="author"></a>
 
 👤 **David-Lanzz**
 - GitHub: [@githubhandle](https://github.com/David-Lanzz/)
 - Twitter: [@twitterhandle](https://twitter.com/LanzzDavid)
 - LinkedIn: [LinkedIn](https://linkedin.com/in/david-lanzz)
 
+
+👤 **Zewdie Habtie**
+- GitHub: [ZewdieMc](https://github.com/ZewdieMc/)
+- Twitter: [@habtiezewdie](https://twitter.com/habtiezewdie)
+- LinkedIn: [Zewdie habtie](https://linkedin.com/in/zewdiehabtie)
 <!-- FUTURE FEATURES -->
 
 ## 🔭 Future Features <a name="future-features"></a>
