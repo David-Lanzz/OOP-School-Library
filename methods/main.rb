@@ -5,10 +5,10 @@ require_relative 'returner'
 
 class Main
   def initialize
-    @books = Returner.new.preservedbooks
-    @people = Returner.new.preservedpeople
-    @rentals = Returner.new.preservedrentals
-    @app = App.new(@books,@people,@rentals)
+    @books = Returner.new.read_books
+    @people = Returner.new.read_people
+    @rentals = Returner.new.read_rentals
+    @app = App.new(@books, @people, @rentals)
   end
 
   def run
@@ -17,7 +17,12 @@ class Main
       Choices.new(@app)
     end
   end
+
+  def show
+    print @books,@rentals,@people
+  end
 end
+
 
 main = Main.new
 main.run

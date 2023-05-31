@@ -3,16 +3,16 @@ require 'fileutils'
 
 class Preservation
   def file_exist(filename)
-    FileUtils.mkdir_p("./data")
-    FileUtils.touch("./data/#{filename}.json") if !File.exist?("./data/#{filename}.json") && filename == "#{filename}"
+    FileUtils.mkdir_p('./data')
+    FileUtils.touch("./data/#{filename}.json") if !File.exist?("./data/#{filename}.json") && filename == filename.to_s
   end
 
   def preserve_books(books)
     book_arr = []
     books.each do |book|
       book_arr << {
-        title: book["title"],
-        author: book["author"]
+        title: book['title'],
+        author: book['author']
       }
     end
     return if books.empty?
@@ -25,10 +25,10 @@ class Preservation
     people_arr = []
     people.each do |people|
       people_arr << {
-        name: people["name"],
-        age: people["age"],
-        class: people["class"],
-          id: people["id"]
+        name: people['name'],
+        age: people['age'],
+        class: people['class'],
+        id: people['id']
       }
     end
     return if people.empty?
@@ -41,10 +41,10 @@ class Preservation
     rental_arr = []
     rentals.each do |rental|
       rental_arr << {
-        person: rental["person"],
-        book: rental["book"],
-        date: rental["date"],
-        author: rental["author"]
+        person: rental['person'],
+        book: rental['book'],
+        date: rental['date'],
+        author: rental['author']
       }
     end
     return if rentals.empty?
