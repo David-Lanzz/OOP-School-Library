@@ -3,18 +3,24 @@ require_relative '../classes/teacher'
 require_relative '../classes/students'
 require_relative '../classes/book'
 require_relative '../classes/rental'
+require_relative '../storage/preservation'
 
 class App
   attr_accessor :books, :people
 
-  def initialize
-    @books = []
-    @people = []
-    @rentals = []
+  def initialize(books,people,rentals)
+    @books = books
+    @people = people
+    @rentals = rentals
+  end
+
+  def show
+    print @books[0].title
   end
 
   def all_books
     puts 'List of books:'
+    puts @books
     @books.each do |book|
       puts "Title: #{book.title.capitalize}, Author: #{book.author.capitalize}"
     end
@@ -47,6 +53,7 @@ class App
     author = gets.chomp
     newest_book = Book.new(title, author)
     @books.push(newest_book)
+    Preservation.new.preserve_books(@books)
     puts 'Book created successfully'
   end
 
@@ -59,6 +66,7 @@ class App
     specialization = gets.chomp
     newest_teacher = Teacher.new(name, age, specialization)
     @people.push(newest_teacher)
+    Preservation.new.preserve_people(@people)
     puts 'Teacher created successfully'
   end
 
@@ -71,6 +79,7 @@ class App
     parent_permission_input = gets.chomp.upcase
     new_student = Student.new(name, age, parent_permission_input)
     @people.push(new_student)
+    Preservation.new.preserve_people(@people)
     puts 'Student created successfully'
   end
 
@@ -103,6 +112,7 @@ class App
     date = gets.chomp
     rental = Rental.new(date, selected_book, selected_person)
     @rentals.push(rental)
+    Preservation.new.preserve_rentals(@rentals)
     puts 'Rental created successfully'
   end
 

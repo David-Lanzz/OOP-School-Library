@@ -1,3 +1,5 @@
+require 'json'
+
 class Choices
   def initialize(app)
     input = gets.chomp
