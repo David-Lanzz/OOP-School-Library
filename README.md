@@ -81,7 +81,7 @@ Install all the dependencies required for, by using the command below
 
 ```sh
   cd my-project
-  npm install
+  bundle install
 ```
 
 <!-- AUTHOR -->
