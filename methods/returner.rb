@@ -4,21 +4,16 @@ class Returner
 
   def initialize
     File.open('./data/books.json', 'r') do |file|
-      bookfile = file.readlines
-     puts JSON.parse(bookfile)
-
-      @preservedbooks = bookfile
+      bookfile = file.read
+    @preservedbooks = JSON.parse(bookfile)
     end
     File.open('./data/rentals.json', 'r') do |file|
-      rentalfile = file.readlines
-      @preservedrentals = rentalfile
+      rentalfile = file.read
+      @preservedrentals = JSON.parse(rentalfile)
     end
     File.open('./data/people.json', 'r') do |file|
-      peoplefile = file.readlines
-      @preservedpeople = peoplefile
+      peoplefile = file.read
+      @preservedpeople = JSON.parse(peoplefile)
     end
   end
 end
-
-lanzz = Returner.new
-puts lanzz.preservedbooks

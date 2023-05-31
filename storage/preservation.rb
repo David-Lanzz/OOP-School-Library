@@ -11,8 +11,8 @@ class Preservation
     book_arr = []
     books.each do |book|
       book_arr << {
-        title: book.title,
-        author: book.author
+        title: book["title"],
+        author: book["author"]
       }
     end
     return if books.empty?
@@ -25,9 +25,10 @@ class Preservation
     people_arr = []
     people.each do |people|
       people_arr << {
-        name: people.name,
-        age: people.age,
-        class: people.class
+        name: people["name"],
+        age: people["age"],
+        class: people["class"],
+          id: people["id"]
       }
     end
     return if people.empty?

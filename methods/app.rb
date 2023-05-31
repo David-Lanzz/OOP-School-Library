@@ -14,22 +14,17 @@ class App
     @rentals = rentals
   end
 
-  def show
-    print @books[0].title
-  end
-
   def all_books
     puts 'List of books:'
-    puts @books
     @books.each do |book|
-      puts "Title: #{book.title.capitalize}, Author: #{book.author.capitalize}"
+      puts "Title: #{book["title"].capitalize}, Author: #{book["author"].capitalize}"
     end
   end
 
   def all_people
     puts 'All people:'
     @people.each do |person|
-      puts "name: #{person.name}, age: #{person.age}"
+      puts "name: #{person["name"]}, age: #{person["age"]}"
       puts "\n"
     end
   end
@@ -52,7 +47,9 @@ class App
     puts 'Book author?'
     author = gets.chomp
     newest_book = Book.new(title, author)
-    @books.push(newest_book)
+    newestbooktitle = newest_book.title
+    newestbookauthor = newest_book.author
+    @books << {"title"=> newestbooktitle,"author"=> newestbookauthor}
     Preservation.new.preserve_books(@books)
     puts 'Book created successfully'
   end
@@ -65,7 +62,10 @@ class App
     puts 'specialization?'
     specialization = gets.chomp
     newest_teacher = Teacher.new(name, age, specialization)
-    @people.push(newest_teacher)
+    newest_teachername = newest_teacher.name
+    newest_teacherage = newest_teacher.age
+    newest_teacherid = newest_teacher.id
+    @people << {"name"=> newest_teachername,"age"=> newest_teacherage,"id"=> newest_teacherid}
     Preservation.new.preserve_people(@people)
     puts 'Teacher created successfully'
   end
@@ -120,7 +120,7 @@ class App
     puts 'ID of person:'
     requested_id = gets.chomp.to_i
     person = @people.find do |p|
-      p.id == requested_id
+      p["id"].to_i == requested_id
     end
     if person.nil?
       puts "person with requested id: #{requested_id} not found"
@@ -128,10 +128,10 @@ class App
     end
     puts 'Rentals: '
     rental_for_person = @rentals.select do |rental|
-      rental.person == person
+      rental["author"] == person["name"]
     end
     rental_for_person.each do |rental|
-      puts "Date: #{rental.date}, Book: #{rental.book.title} by #{rental.book.author}"
+      puts "Date: #{rental["date"]}, Book: #{rental["book"]} by #{rental["author"]}"
     end
   end
 end
