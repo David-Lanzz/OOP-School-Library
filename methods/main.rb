@@ -6,7 +6,7 @@ require_relative 'returner'
 
 class Main
   def initialize
-    @books =  Returner.new.preservedbooks
+    @books = Returner.new.preservedbooks
     @people = Returner.new.preservedpeople
     @rentals = Returner.new.preservedrentals
     @app = App.new(@books, @people, @rentals)
