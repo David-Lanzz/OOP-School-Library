@@ -8,7 +8,7 @@ require_relative '../storage/preservation'
 class App
   attr_accessor :books, :people
 
-  def initialize(books=[],people=[],rentals=[])
+  def initialize(books,people,rentals)
     @books = books
     @people = people
     @rentals = rentals
@@ -101,7 +101,7 @@ class App
     selected_book = books[book_number]
     puts 'Select a person from the following list by number (not id)'
     @people.each_with_index do |person, index|
-      puts "#{index}) [#{person.class}] Name: #{person.name}, ID: #{person.id}, Age: #{person.age}"
+      puts "#{index}) [#{person["class"]}] Name: #{person["name"]}, ID: #{person["id"]}, Age: #{person["age"]}"
     end
     number = gets.chomp.to_i
     continue_rental_registration(number, selected_book)
@@ -116,7 +116,11 @@ class App
     puts 'Date: '
     date = gets.chomp
     rental = Rental.new(date, selected_book, selected_person)
-    @rentals.push(rental)
+    rentaldate = rental.date
+    rentalbook = rental.book["title"]
+    rentalperson = rental.person["name"]
+    rentalauthor = rental.book["author"]
+    @rentals << {"date"=> rentaldate,"book"=> rentalbook,"person"=> rentalperson, "author"=> rentalauthor}
     Preservation.new.preserve_rentals(@rentals)
     puts 'Rental created successfully'
   end
@@ -133,7 +137,7 @@ class App
     end
     puts 'Rentals: '
     rental_for_person = @rentals.select do |rental|
-      rental["author"] == person["name"]
+      rental["person"] == person["name"]
     end
     rental_for_person.each do |rental|
       puts "Date: #{rental["date"]}, Book: #{rental["book"]} by #{rental["author"]}"

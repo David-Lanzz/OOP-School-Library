@@ -17,3 +17,8 @@ class Returner
     end
   end
 end
+
+lanzz = Returner.new
+print lanzz.preservedbooks
+print lanzz.preservedrentals
+print lanzz.preservedpeople

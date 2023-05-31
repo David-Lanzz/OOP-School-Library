@@ -41,9 +41,10 @@ class Preservation
     rental_arr = []
     rentals.each do |rental|
       rental_arr << {
-        person: rental.person.name,
-        book: rental.book.title,
-        date: rental.date
+        person: rental["person"],
+        book: rental["book"],
+        date: rental["date"],
+        author: rental["author"]
       }
     end
     return if rentals.empty?
