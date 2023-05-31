@@ -8,7 +8,7 @@ require_relative '../storage/preservation'
 class App
   attr_accessor :books, :people
 
-  def initialize(books,people,rentals)
+  def initialize(books=[],people=[],rentals=[])
     @books = books
     @people = people
     @rentals = rentals
@@ -65,7 +65,8 @@ class App
     newest_teachername = newest_teacher.name
     newest_teacherage = newest_teacher.age
     newest_teacherid = newest_teacher.id
-    @people << {"name"=> newest_teachername,"age"=> newest_teacherage,"id"=> newest_teacherid}
+    newest_teacherclass = newest_teacher.class
+    @people << {"name"=> newest_teachername,"age"=> newest_teacherage,"id"=> newest_teacherid.to_s,"class"=> newest_teacherclass}
     Preservation.new.preserve_people(@people)
     puts 'Teacher created successfully'
   end
@@ -78,7 +79,11 @@ class App
     puts 'Has parent permission[Y/N]?'
     parent_permission_input = gets.chomp.upcase
     new_student = Student.new(name, age, parent_permission_input)
-    @people.push(new_student)
+    new_studentname = new_student.name
+    new_studentage = new_student.age
+    new_studentid = new_student.id
+    new_studentclass = new_student.class
+    @people << {"name"=> new_studentname,"age"=> new_studentage,"id"=> new_studentid.to_s,"class"=> new_studentclass}
     Preservation.new.preserve_people(@people)
     puts 'Student created successfully'
   end
@@ -86,7 +91,7 @@ class App
   def new_rental
     puts 'Select a book from the following list by number:'
     @books.each_with_index do |book, index|
-      puts "(#{index}) Title: #{book.title}"
+      puts "(#{index}) Title: #{book["title"]}"
     end
     book_number = gets.chomp.to_i
     if book_number.negative? || book_number > books.length
