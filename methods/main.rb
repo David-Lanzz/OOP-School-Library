@@ -19,10 +19,9 @@ class Main
   end
 
   def show
-    print @books,@rentals,@people
+    print @books, @rentals, @people
   end
 end
-
 
 main = Main.new
 main.run

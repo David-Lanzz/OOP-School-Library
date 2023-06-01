@@ -23,12 +23,12 @@ class Preservation
 
   def preserve_people(people)
     people_arr = []
-    people.each do |people|
+    people.each do |person|
       people_arr << {
-        name: people['name'],
-        age: people['age'],
-        class: people['class'],
-        id: people['id']
+        name: person['name'],
+        age: person['age'],
+        class: person['class'],
+        id: person['id']
       }
     end
     return if people.empty?
