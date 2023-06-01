@@ -81,12 +81,12 @@ Install all the dependencies required for, by using the command below
 
 ```sh
   cd my-project
-  npm install
+  bundle install
 ```
 
 <!-- AUTHOR -->
 
-## 👥 Author <a name="author"></a>
+ 👥 Authors <a name="author"></a>
 
 👤 **David-Lanzz**
 - GitHub: [@githubhandle](https://github.com/David-Lanzz/)
@@ -100,7 +100,12 @@ Install all the dependencies required for, by using the command below
 
 - Twitter: [@habtiezewdie](https://twitter.com/LanzzDavid)
 
-- LinkedIn: [zewdie Habtie](https://linkedin.com/in/zewdiehabtie)
+
+👤 **Zewdie Habtie**
+- GitHub: [ZewdieMc](https://github.com/ZewdieMc/)
+- Twitter: [@habtiezewdie](https://twitter.com/habtiezewdie)
+- LinkedIn: [Zewdie habtie](https://linkedin.com/in/zewdiehabtie)
+
 <!-- FUTURE FEATURES -->
 
 ## 🔭 Future Features <a name="future-features"></a>
